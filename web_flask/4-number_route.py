@@ -3,6 +3,7 @@
 Simple flask app
 """
 
+from tkinter import N
 from flask import Flask
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ def hello_route():
         / - route: display “Hello HBNB!”
         """
         return("Hello HBNB!")
+
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb_route():
@@ -28,7 +30,7 @@ def c_route(text):
         /hbnb - route: display "url variable"
         """
         body = text.replace('_', ' ')
-        return(f"C {body}")
+        return("C {}".format(body))
 
 
 @app.route('/python', defaults={'text': 'is_cool'}, strict_slashes=False)
@@ -38,7 +40,7 @@ def python_route(text):
         /hbnb - route: display "url variable"
         """
         body = text.replace('_', ' ')
-        return(f"Python  {body}")
+        return("Python {}".format(body))
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
@@ -47,7 +49,7 @@ def number_route(n):
         /hbnb - route: display "url variable"
         """
         if isinstance(n, int):
-                return(f"{n} is a number")
+                return("{} is a number".format())
 
 
 if __name__ == "__main__":
