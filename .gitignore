@@ -1,2 +1,4 @@
 perm.sh
 /theo
+/venv
+*__pycache__
