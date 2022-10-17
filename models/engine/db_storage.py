@@ -47,7 +47,7 @@ class DBStorage:
                    'Amenity': Amenity, 'Review': Review}
         obj_dict = {}
         if cls:
-            cls_objs = self.__session.query(classes[cls]).all()
+            cls_objs = self.__session.query(cls).all()
         else:
             cls_objs = []
             for cls_name in list(classes.values()):
@@ -78,7 +78,7 @@ class DBStorage:
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         session = scoped_session(session_factory)
-        self.__session = session
+        self.__session = session()
 
     def save(self):
         """
@@ -95,3 +95,10 @@ class DBStorage:
 
         if obj:
             self.__session.delete(obj)
+
+    def close(self):
+        """
+        reload session object
+        """
+
+        self.__session.close()
