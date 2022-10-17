@@ -3,7 +3,6 @@
 Simple flask app
 """
 
-from tkinter import N
 from flask import Flask
 
 app = Flask(__name__)
