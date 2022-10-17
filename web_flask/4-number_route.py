@@ -49,7 +49,7 @@ def number_route(n):
         /hbnb - route: display "url variable"
         """
         if isinstance(n, int):
-                return("{} is a number".format())
+                return("{} is a number".format(n))
 
 
 if __name__ == "__main__":

@@ -3,8 +3,8 @@
 Simple flask app
 """
 
-from tkinter import N
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 

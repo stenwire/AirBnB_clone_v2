@@ -3,8 +3,8 @@
 Simple flask app
 """
 
-from tkinter import N
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -49,7 +49,7 @@ def number_route(n):
         /hbnb - route: display "url variable"
         """
         if isinstance(n, int):
-                return("{} is a number".format())
+                return("{} is a number".format(n))
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
